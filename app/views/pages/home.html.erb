@@ -2,14 +2,14 @@
 	<head>
 		<title>Page Title</title>
 		<style>
-			
 		</style>
 	</head>
 	<body style="text-align: center;">
 
 		<h1>Welcome to my webpage</h1>
-		<div style="border: 0px solid black; height: 100px;"><img width="100%" height="100%" src="assets/images/header.png" />
+		<div style="border: 0px solid black; height: 100px;"><!-- <img width="100%" height="100%" src="assets/images/header.png" /> -->
 		</div>
+		<div><h4><%= link_to 'Articles' , articles_path%> | <%= link_to 'About' , about_path%></h4></div>
 		<div>
 			<div style="float: right; width: 49%">
 				<h2> 1 Guide Assumptions</h2>
@@ -31,6 +31,5 @@
 
 			</div>
 		</div>
-		<%= link_to 'About' , about_path%>
 	</body>
 </html>

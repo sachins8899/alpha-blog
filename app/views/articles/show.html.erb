@@ -1,10 +1,14 @@
 <h1>Show Selected Article</h1>
 
 <p>
-	<label><b>Title : </b></label><br />
+	<label><b>Title : </b></label>
+	<br />
 	<label><%= @article.title%></label>
 </p>
 <p>
-	<label><b>Description : </b></label><br />
+	<label><b>Description : </b></label>
+	<br />
 	<label><%= @article.description%></label>
 </p>
+
+<%= link_to 'Show All Articles' ,articles_path%> | <%= link_to 'Edit Articles' ,edit_article_path(@article)%>

@@ -1,0 +1,21 @@
+<% flash.each do |name,msg|%>
+<ul>
+	<% if name == 'error'%>
+	<b>
+	<li style="color: red">
+		<%= msg %>
+	</li></b>
+	<ul>
+		<% @article.errors.full_messages.each do |err|%>
+		<li style="color: red">
+			<%= err %>
+		</li>
+		<% end %>
+	</ul>
+	<% else %>
+	<li style="color: green">
+		<%= msg %>
+	</li>
+	<% end %>
+</ul>
+<% end %>
