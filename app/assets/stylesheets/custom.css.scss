@@ -16,13 +16,11 @@ h1{
 .center{
   text-align: center;
 }
-.jumbotron{
-  background-image: asset-url('header.png');
-  background-size: cover;
-}
-.jumbotron h1{
-  color:#fff;
-}
+.jumbotron{ background-image: asset-url('header.png'); background-size: cover; }
+.jumbotron h1{ color:#fff; }
+.hideextra { white-space: nowrap; overflow: hidden; text-overflow:ellipsis; }
+.article-title{font-weight : bold; font-size:1.5em;}
+.article-des{border-top: 1px solid #EAEAEA; padding-top: 15px; font-weight: bold;}
 footer {
 
 margin-top: 45px;

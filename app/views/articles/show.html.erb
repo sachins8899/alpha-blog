@@ -1,17 +1,17 @@
-<h1>Show Selected Article</h1>
+<h1><small>Title</small></h1>
+<h1><%= @article.title%></h1>
+<hr />
+<div class="well col-xs-10 col-sm-offset-1 col">
+	<h2><small>Description</small></h2>
+	<p>
+	<p>
+		<label> &nbsp;&nbsp;<%= @article.description%></label>
+	</p>
 
-<p>
-	<label style="color: #00CBFD">Title : </label>
-	<p><label> &nbsp;&nbsp;<%= @article.title%></label></p>
-	
-</p>
-<p>
-	<label style="color: #00CBFD">Description : </label>
-	<p><label> &nbsp;&nbsp;<%= @article.description%></label></p>
-	
-</p>
+	</p>
+	<hr />
+	<%= link_to 'Edit This Articles' ,edit_article_path(@article), class:'btn btn-xl btn-primary' %>
+	<%= link_to 'Show All Articles' ,articles_path, class:'btn btn-xl btn-success' %>
+	<%= link_to 'Delete This Article' ,article_path(@article),method: :delete ,data: {confirm: "Are You Sure ?"}, class:'btn btn-xl btn-danger' %>
 
-<%= link_to 'Edit Articles' ,edit_article_path(@article), class:'btn btn-primary btn-lg' %>
-<div class="col-xs-4 col-xs-offset-4">
-			[ <%= link_to "Articles listing", articles_path %> ]
 </div>

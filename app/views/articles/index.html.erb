@@ -1,5 +1,19 @@
-<h1>Articles </h1>
-<table cellpadding="5px" class="table">
+<h1>Article List</h1>
+<% @article.each do |articles|%>
+	<div class="row">
+		<div class="col-xs-10 col-sm-offset-1">
+			<div class="well well-lg">
+				<div class="article-title">
+					<%= link_to articles.title, article_path(articles)%>
+				</div>
+				<div class="article-des">
+					<%= truncate(articles.description, length: 100)%>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>
+<!-- <table class="table">
 	<thead>
 		<th>S.No</th>
 		<th>Articles</th>
@@ -13,8 +27,8 @@
 			<td><%= i %><% i+=1%></td>
 			<td><%= articles.title%></td>
 			<td><%= articles.description%></td>
-			<td><%= link_to 'Show' ,article_path(articles) %> | <%= link_to 'Delete' ,article_path(articles),method: :delete ,data: {confirm: "Are You Sure ?"} %> </td>
+			<td><%= link_to 'Show' ,article_path(articles) , class:'btn btn-xs btn-success' %> </td>
 		</tr>
 		<% end %>
 	</tbody>
-</table>
+</table> -->
