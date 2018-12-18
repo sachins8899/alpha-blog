@@ -8,20 +8,20 @@ class ArticlesController < ApplicationController
     # render plain: params[:article].inspect
     @article = Article.new(article_params)
     if @article.save
-      flash[:notice] ="Article Was Successfully Added !"
+      flash[:success] ="Article Was Successfully Added !"
       redirect_to article_path(@article)
     else
-      flash[:error] ="Somthing went wrong !! "
+      flash[:danger] ="Somthing went wrong !! "
       render 'new'
     end
   end
 
   def update
     if @article.update(article_params)
-      flash[:notice] = "Article Updation Done !"
+      flash[:success] = "Article Updation Done !"
       redirect_to article_path(@article)
     else
-      flash[:error] = "Somthing went Wrong !!"
+      flash[:danger] = "Somthing went Wrong !!"
       render 'edit'
     end
   end
@@ -38,9 +38,9 @@ class ArticlesController < ApplicationController
 
   def destroy
     if(@article.destroy)
-      flash[:notice] = "Article Deleted Successfully !"
+      flash[:success] = "Article Deleted Successfully !"
     else
-      flash[:error] = "Something went wrong !!"      
+      flash[:danger] = "Something went wrong !!"      
     end
     redirect_to articles_path
   end
