@@ -7,7 +7,11 @@
 					<%= link_to articles.title, article_path(articles)%>
 				</div>
 				<div class="article-des">
-					<%= truncate(articles.description, length: 100)%>
+					<%= truncate(articles.description, length: 100)%><br /><br />
+					<div>
+						<small class="rightsmall">Created By : <%= articles.user.username%></small>
+						<small class="leftsmall">Last Update : <%= time_ago_in_words(articles.updated_at)%> ago</small>
+					</div>
 				</div>
 			</div>
 		</div>
