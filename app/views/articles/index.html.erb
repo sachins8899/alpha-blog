@@ -9,7 +9,7 @@
 				<div class="article-des">
 					<%= truncate(articles.description, length: 100)%><br /><br />
 					<div>
-						<small class="rightsmall">Created By : <%= articles.user.username%></small>
+						<small class="rightsmall">Created By : <%= articles.user.first_name%> <%= articles.user.last_name%></small>
 						<small class="leftsmall">Last Update : <%= time_ago_in_words(articles.updated_at)%> ago</small>
 					</div>
 				</div>
