@@ -5,37 +5,9 @@
 			<a href="#" class="close" data-dismiss="alert">&#215;</a>
 			<%= content_tag :div, msg , :id => 'flash_#{name}' if msg.is_a?(String)%>
 			<% if name == "danger"%>
-			<ul>
-				<% @article.errors.full_messages.each do |err|%>
-				<li style="color: red">
-					<%= err %>
-				</li>
-				<% end %>
-			</ul>
+			<%= render 'layouts/errorflash'%>
 			<% end %>
 		</div>
 		<% end %>
 	</div>
 </div>
-
-<!-- <% flash.each do |name,msg|%>
-<ul>
-	<% if name == 'error'%>
-	<b>
-	<li style="color: red">
-		<%= msg %>
-	</li></b>
-	<ul>
-		<% @article.errors.full_messages.each do |err|%>
-		<li style="color: red">
-			<%= err %>
-		</li>
-		<% end %>
-	</ul>
-	<% else %>
-	<li style="color: green">
-		<%= msg %>
-	</li>
-	<% end %>
-</ul>
-<% end %> -->
