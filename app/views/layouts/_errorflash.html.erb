@@ -1,20 +1,23 @@
-<% if @user.nil? %>
-	<ul>
-		<% @article.errors.full_messages.each do |err|%>
-		<li style="color: red">
-			<%= err %>
-		</li>
-		<% end %>
-	</ul>
-	<% else if @article.nil? %>
-		<ul>
-			<% @user.errors.full_messages.each do |err|%>
-			<li style="color: red">
-				<%= err %>
-			</li>
-			<% end %>
-		</ul>
-	<% else %>
-	
+<% if ! @user.nil? %>
+<ul>
+	<% @user.errors.full_messages.each do |err|%>
+	<li style="color: red">
+		<%= err %>
+	</li>
 	<% end %>
+</ul>
+<% else if ! @article.nil? %>
+<ul>
+	<% @article.errors.full_messages.each do |err|%>
+	<li style="color: red">
+		<%= err %>
+	</li>
+	<% end %>
+</ul>
+<% else if !session.nil? %>
+
+<% else %>
+
+<% end %>
+<% end %>
 <% end %>

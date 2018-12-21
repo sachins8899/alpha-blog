@@ -10,8 +10,10 @@
 
 	</p>
 	<hr />
+	<% if logged_in? && current_user == @article.user %>
 	<%= link_to 'Edit This Articles' ,edit_article_path(@article), class:'btn btn-xl btn-primary' %>
-	<%= link_to 'Show All Articles' ,articles_path, class:'btn btn-xl btn-success' %>
 	<%= link_to 'Delete This Article' ,article_path(@article),method: :delete ,data: {confirm: "Are You Sure ?"}, class:'btn btn-xl btn-danger' %>
+	<% end %>
+	<%= link_to 'Show All Articles' ,articles_path, class:'btn btn-xl btn-success' %>
 
 </div>
