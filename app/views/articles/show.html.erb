@@ -1,15 +1,15 @@
-<h1><small>Title</small></h1>
-<h1><%= @article.title%></h1>
+<h2><b><%= @article.title%></b><small>(Titile)</small></h2>
+<div class="leftsmall"><%@article.categories.each do |c|%><%= link_to c.name, category_path(c),class:"btn-primary btn-sm"%> <% end %></div>
 <hr />
-<div class="well col-xs-10 col-sm-offset-1 col">
-	<h2><small>Description</small></h2>
+<div class="col-xs-2 col-sm-offset-0">
+	<b>Description :-</b>
+</div>
+<div class="col-xs-8 col-sm-offset-0">
 	<p>
-	<p>
-		<label> &nbsp;&nbsp;<%= @article.description%></label>
+		<label><%= @article.description%></label>
 	</p>
-
-	</p>
-	<hr />
+</div>
+<div class="well col-xs-12 col">
 	<% if logged_in? && current_user == @article.user %>
 	<%= link_to 'Edit This Articles' ,edit_article_path(@article), class:'btn btn-xl btn-primary' %>
 	<%= link_to 'Delete This Article' ,article_path(@article),method: :delete ,data: {confirm: "Are You Sure ?"}, class:'btn btn-xl btn-danger' %>

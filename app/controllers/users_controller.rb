@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success]="Successfully Added. Login with the user Name : #{@user.username}"
-      redirect_to root_path
+      redirect_to login_path
     else
       flash[:danger]="Somthig went wrong !! "
       render 'new'
@@ -40,6 +40,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     if current_user != @user
+      session[@user.id]=nil
       if @user.destroy 
         flash[:success]="User Deleted Successfully !!"
         redirect_to users_path
