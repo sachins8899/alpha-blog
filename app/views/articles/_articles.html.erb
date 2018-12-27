@@ -1,18 +1,22 @@
 <% obj.each do |articles|%>
-	<div class="row">
-		<div class="col-xs-10 col-sm-offset-1">
-			<div class="well well-lg">
-				<div class="article-title">
-					<%= link_to articles.title, article_path(articles)%>
-				</div>
-				<div class="article-des">
-					<%= truncate(articles.description, length: 100)%><br /><br />
-					<div>
-						<small class="rightsmall">Created By : <%= articles.user.first_name%> <%= articles.user.last_name%></small>
-						<small class="leftsmall">Last Update : <%= time_ago_in_words(articles.updated_at)%> ago</small>
-					</div>
-				</div>
+<div class="row">
+	<div class="col-xs-10 col-sm-offset-1">
+		<div class="well well-lg">
+			<div class="row floatset">
+				<%if articles.categories.length > 0%><b>Categories :</b><% end %>
+				<% articles.categories.each do |cn|%>
+					<%= link_to cn.name, category_path(cn),class: "btn-primary btn-sm" %>
+				<% end %>
+			</div>
+			<div class="article-title">
+				<%= link_to articles.title, article_path(articles)%>
+			</div>
+			<div class="article-des">
+				<p><%= truncate(articles.description, length: 100)%></p>
+				<p><small class="rightsmall">Created By : <%= link_to articles.user.first_name+" "+articles.user.last_name, user_path(articles.user)%></small></p>
+				<p><small class="leftsmall">Last Update : <%= time_ago_in_words(articles.updated_at)%> ago</small></p>
 			</div>
 		</div>
 	</div>
+</div>
 <% end %>

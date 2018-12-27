@@ -37,6 +37,18 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+  def destroy
+    @user = User.find(params[:id])
+    if current_user != @user
+      if @user.destroy 
+        flash[:success]="User Deleted Successfully !!"
+        redirect_to users_path
+      end
+    else
+      flash[:danger] ="Can't Delete this User"
+      redirect_to root_path
+    end
+  end
   
   private
   
