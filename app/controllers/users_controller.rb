@@ -21,11 +21,11 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user_articles = @user.articles.paginate(page: params[:page], per_page: 3)
+    @user_articles = @user.articles.order(created_at: :desc).paginate(page: params[:page], per_page: 3)
   end
   
   def index
-    @users = User.paginate(page: params[:page], per_page: 3)
+    @users = User.where.not(email: current_user.email).paginate(page: params[:page], per_page: 3)
   end
   
   def update
@@ -40,8 +40,8 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     if current_user != @user
-      session[@user.id]=nil
       if @user.destroy 
+        session[@user.id]=nil
         flash[:success]="User Deleted Successfully !!"
         redirect_to users_path
       end

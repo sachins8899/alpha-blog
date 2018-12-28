@@ -8,7 +8,5 @@
 	<%= will_paginate @category_articles%>
 </div>
 <% else %>
-<div align="center">
-	<p style="color: red;"><b> No Data Found For This Category </b> </p>
-</div>
+<%= render 'layouts/emptydata'%>
 <% end %>

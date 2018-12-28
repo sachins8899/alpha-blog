@@ -1,8 +1,12 @@
-<h1>Article List</h1>
+<h1>Articles</h1>
 <div align="center">
 	<%= will_paginate %>
 </div>
-<%= render 'articles', obj: @articles%>
+<% if @articles.length > 0%>
+	<%= render 'articles', obj: @articles%>
+<% else %>
+	<%= render 'layouts/emptydata'%>
+<% end %>
 <div align="center">
 	<%= will_paginate %>
 </div> 
