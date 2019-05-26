@@ -1,1 +1,1 @@
-This is my first alpha blog project
+This is my first alpha blog project Rails
